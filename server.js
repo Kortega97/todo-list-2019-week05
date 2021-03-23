@@ -8,7 +8,7 @@ var db, collection;
 const url = "mongodb+srv://Kso-savage:Ortega@cluster0.f93jb.mongodb.net/todo-ortega?retryWrites=true&w=majority";
 const dbName = "todo-ortega";
 
-app.listen(3000, () => {
+app.listen(5050, () => {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
@@ -26,7 +26,7 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   db.collection('todo-messages').find().toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {messages: result})
+    res.render('index.ejs', {tasks: result})
   })
 })
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class='top'>
+       <h4>Total Task : <span class='taskNum'></span></h4>
+    
+        <form action = '/listContainer' method ='POST'>
+            <input name = 'task' class='listInput' type='text' placeholder="whats next?">
+            <button type = 'submit' class='submit'>Submit</button> 
+        </form>
+        
+        <button class='clear'>Clear All!</button>
+        <button class='clearCompleted'>Clear Completed</button>
+        <h5>*Click to mark complete!!*</h5>
+
+        <section class='listContainer'>
+            <% for(i = 0; i < tasks.length; i++){ %>
+            <li><span><%= tasks[i].task%></span><button class='erase'></button></li>
+            <% } %>
+        </section>
+
+   </section>
+</body>
+<script src="main.js"></script>
+</html>
