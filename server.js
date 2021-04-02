@@ -54,7 +54,8 @@ app.put('/checked', (req, res) => {
 })
 // erases with the erasse button in the LI
 app.delete('/eraseOne', (req, res) => {
-  db.collection('todo-messages').findOneAndDelete({task: req.body.task, marked: req.body.marked}, (err, result) => {
+  console.log(req.body)
+  db.collection('todo-messages').findOneAndDelete({task: req.body.task }, (err, result) => {
     if (err) return res.send(500, err)
     res.send('Message deleted!')
   })
